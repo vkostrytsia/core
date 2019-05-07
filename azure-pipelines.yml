@@ -20,7 +20,6 @@ steps:
     command: build
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
-  enabled: false
 
 # Build the projects using Powershell
 - powershell: |
@@ -28,6 +27,7 @@ steps:
    $dotnet_path = "$env:ProgramFiles\dotnet\dotnet.exe"
    $project_files | ForEach-Object -Process { & $dotnet_path build $_.FullName '--configuration' $(buildConfiguration) }
   displayName: 'PowerShell Script to execute dotnet build'
+  enabled: false
 
 #Publish all projects artifacts to Build.ArtifactStagingDirectory
 - task: DotNetCoreCLI@2
