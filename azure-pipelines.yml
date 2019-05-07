@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows-2019'
+ name: VKostrytsia-local-test-pool
 
 variables:
   buildConfiguration: 'Release'
